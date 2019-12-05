@@ -5,16 +5,16 @@ require 'rest-client'
 #variables
 dev_url   = 'https://api-dev.vitalsource.com'
 endpt     = '/v4/users/'
-api_key   = ARGV[0]
-acc_token = ARGV[1]
+api_key   = ENV['API_KEY']
+acc_token = ARGV[0]
 # api_key, access_token = ARGV
 #
-#
+#when you close rubymine you'll lose the api key in the environment
 #access_token = '96fb7328e02f91abaa375acc8bdef426'
 #ref by index number
 #ARGV is prepopulated for you by the words you follow after the script
 
-#variables which contain variables
+#variables which contain variable
     url      = "#{dev_url}#{endpt}#{acc_token}"
     h1       = {'X-VitalSource-API-Key': api_key}
 
@@ -22,6 +22,7 @@ api_resp = RestClient.get url, h1
 
 puts api_resp
 
+#ref an enviro variable as #ENV['KEY'] and it gives you the value of the key-value pair
 
 #look up symbols vs. strings and how they differ
 
