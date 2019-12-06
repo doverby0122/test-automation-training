@@ -13,6 +13,8 @@ acc_token = ARGV[0]
 #access_token = '96fb7328e02f91abaa375acc8bdef426'
 #ref by index number
 #ARGV is prepopulated for you by the words you follow after the script
+# parse json rubydocs
+
 
 #variables which contain variable
     url      = "#{dev_url}#{endpt}#{acc_token}"
