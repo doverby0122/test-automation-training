@@ -1,42 +1,28 @@
 #! /usr/bin/env ruby
 
 require 'rest-client'
-#require_relative 'user'
+require_relative 'user'
 require 'json'
-
-#try putting the below into it's own file
-class User
-  def initialize(access_token)
-    dev_url   = 'https://api-dev.vitalsource.com'
-    endpt     = '/v4/users/'
-    api_key   = ENV['API_KEY']
-    url       = "#{dev_url}#{endpt}#{access_token}"
-    h1        = {'X-VitalSource-API-Key': api_key}
-    #api_resp  = RestClient.get url, 'X-VitalSource-API-Key': api_key
-    api_resp  = RestClient.get url, h1
-    user_info = JSON.parse(api_resp)
-
-      @first_name  = user_info['first_name']
-      @last_name = user_info['last_name']
-      @email = user_info['email']
-
-    end
-end
-#and don't grab anything below this line
 
 access_token = ARGV[0]
 
 user = User.new(access_token)
 
 puts user.inspect
+#puts user.first_name
+#puts user.first_name = "Bob"
+#puts user.last_name = "Ross"
+puts user.full_name
+#puts user.blah
 
 #attempt to re-work this potentially another way
 # set the variables alone and remove the class info
 # separate the class creation from the above variables
+# initialize the class as the different vals (first_name, last_name, email, access_token)
 # idea is to have the class creation independent from the vst variables
 # then also try to set the class into another file
-
 #return new user object with first name, last name, email as it's instance variables
+#figure out how to do puts user.first_name out by individually referencing them
 
 #ref an enviro variable as #ENV['KEY'] and it gives you the value of the key-value pair
 
