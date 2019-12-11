@@ -1,7 +1,10 @@
 #! /usr/bin/env ruby
 
 require 'rest-client'
+# should be able to use for anything
 require_relative 'user'
+# could run relative to another directory
+# use when you create new classes yourself
 require 'json'
 
 access_token = ARGV[0]
